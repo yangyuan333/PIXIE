@@ -112,6 +112,15 @@ def main(args):
     print(f'-- please check the results in {savefolder}')
 
 if __name__ == '__main__':
+    
+    sys.argv = [
+        "", 
+        "--saveObj=True",
+        "--useTex=False",
+        "--lightTex=False",
+        "--rasterizer_type=pytorch3d"
+        ]
+
     parser = argparse.ArgumentParser(description='PIXIE')
 
     parser.add_argument('-i', '--inputpath', default='TestSamples/body', type=str,

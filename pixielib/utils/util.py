@@ -371,6 +371,7 @@ def write_obj(obj_name,
         if uvfaces is not None:
             uvfaces = uvfaces[:, [2, 1, 0]]
 
+    os.makedirs(os.path.dirname(obj_name),exist_ok=True)
     # write obj
     with open(obj_name, 'w') as f:
         if texture is not None:

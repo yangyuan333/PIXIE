@@ -251,9 +251,9 @@ class SMPLX(nn.Module):
         if self.use_joint_regressor:
             reg_joints = torch.einsum(
                 'ji,bik->bjk', self.extra_joint_regressor, vertices)
-            joints[:, self.source_idxs] = (
-                joints[:, self.source_idxs].detach() * 0.0 +
-                reg_joints[:, self.target_idxs] * 1.0
+            joints[:, self.source_idxs.long()] = (
+                joints[:, self.source_idxs.long()].detach() * 0.0 +
+                reg_joints[:, self.target_idxs.long()] * 1.0
             )
         return vertices, landmarks, joints
         
